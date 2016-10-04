@@ -11,3 +11,20 @@ Angular App
 
 	> `npm install -g grunt-cli`
 - Verify both the bower and grunt are installed using `bower -v` and `grunt -v`
+
+## Project Dependencies
+
+Run the following commands to install the project specific dependencies. Check the dependencies from `bower.json` and `package.json`. Before running the command make sure you're at the projects root path.
+
+	> `npm install`
+	> `grunt bower`
+
+- If any npm installation related error happens please delete the `/node_modules` folder and run the below command  to clear the cache and run the npm install again.
+
+	> `npm cache clean`
+
+## Execute
+
+After installing all the dependencies run the following command to execute and preview the app.
+
+- Run `grunt` for building and `grunt serve` for preview.
