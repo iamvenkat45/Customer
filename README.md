@@ -28,3 +28,7 @@ Run the following commands to install the project specific dependencies. Check t
 After installing all the dependencies run the following command to execute and preview the app.
 
 - Run `grunt` for building and `grunt serve` for preview.
+
+## Screenshots
+
+The Screenshots for each of the feature can be found in screentshots folder.
