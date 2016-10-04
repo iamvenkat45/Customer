@@ -1,11 +1,70 @@
 <div class="panel panel-default">
   <div class="panel-heading clearfix">
-    <p class="pull-left">Customers List</p>
-    <input class="pull-right" type="button" name="btnAddCustomer" class="btn btn-primary" value="Add Customer">
+    <h5 class="pull-left"><strong>Customers List</strong></h5>
+    <input class="pull-right" type="button" name="btnAddCustomer" class="btn btn-primary" ng-click="addCustomer()" value="Add Customer">
   </div>
+  <!-- Panel Body Start -->
   <div class="panel-body">
-    <table class="table">
-
+    <table tr-ng-grid items='myItems'>
+      <thead>
+        <tr>
+          <th field-name="firstName"
+            display-name="First Name"
+            enable-filtering="false"
+            display-align="left"
+            cell-width="15%">
+          </th>
+          <th field-name="lastName"
+            display-name="Last Name"
+            enable-filtering="false"
+            display-align="left"
+            cell-width="15%">
+          </th>
+          <th field-name="email"
+            display-name="Email"
+            enable-filtering="false"
+            display-align="left"
+            cell-width="15%">
+          </th>
+          <th field-name="contact"
+            display-name="Phone Number"
+            enable-filtering="false"
+            display-align="left"
+            cell-width="15%">
+          </th>
+          <th field-name="address"
+            display-name="Address"
+            enable-filtering="false"
+            display-align="left"
+            cell-width="25%">
+          </th>
+          <th
+            display-name="First Name"
+            enable-filtering="false"
+            enable-sorting="false"
+            display-align="center"
+            cell-width="15%">
+            <div class="tr-ng-title">Action</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <td class="action-col">
+          <button type="button" class="btn btn-xs btn-info" ng-click="editCustomer(gridItem.id)">Edit</button>
+          <button type="button" class="btn btn-xs btn-danger" ng-click="deleteCusomter(gridItem.id)">Delete</button>
+        </td>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td ng-show="myItems.length > 0">
+              <span tr-ng-grid-pager=""></span>
+          </td>
+          <td ng-if="myItems.length<=0">
+              <p>No Records Found</p>
+          </td>
+        </tr>
+      </tfoot>
     </table>
   </div>
+  <!-- Panel Body End -->
 </div>

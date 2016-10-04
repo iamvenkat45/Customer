@@ -1,0 +1,70 @@
+<div class="modal-content">
+	<form name="manageCustomerForm" id="addCustomerForm" novalidate>
+		<div class="modal-header">
+			<h4 class="modal-title" ng-bind="modalTitle"></h4>
+		</div>
+		<!-- Modal Content Start -->
+		<div class="modal-body">
+			<div class="form-group" ng-class="{'has-error': manageCustomerForm.customerFirstName.$invalid && (manageCustomerForm.customerFirstName.$dirty || isFormSubmitted)}">
+				<label for="customerFirstName">First Name *</label>
+				<div>
+					<input class="form-control" type="text" id="customerFirstName" name="customerFirstName" placeholder="First Name" 
+					ng-model="firstName" required />
+				</div>
+				<div ng-show="manageCustomerForm.customerFirstName.$invalid && manageCustomerForm.customerFirstName.$dirty || isFormSubmitted"
+				 ng-messages="manageCustomerForm.customerFirstName.$error">
+					<div ng-message="required" class="help-block">
+                        First Name is required
+                    </div>
+				</div>
+			</div>
+			<div class="form-group" ng-class="{'has-error': manageCustomerForm.customerLastName.$invalid && (manageCustomerForm.customerLastName.$dirty || isFormSubmitted)}">
+				<label for="customerLastName">Last Name *</label>
+				<div>
+					<input class="form-control" type="text" id="customerLastName" name="customerLastName" placeholder="Last Name" 
+					ng-model="lastName" required />
+				</div>
+				<div ng-show="manageCustomerForm.customerLastName.$invalid && !manageCustomerForm.customerLastName.$pristine || isFormSubmitted"
+				 ng-messages="manageCustomerForm.customerLastName.$error">
+					<div ng-message="required" class="help-block">
+                       Last Name is required
+                    </div>
+				</div>
+			</div>
+			<div class="form-group" ng-class="{'has-error': manageCustomerForm.customerEmail.$invalid && 
+			(manageCustomerForm.customerEmail.$dirty || isFormSubmitted)}">
+				<label for="customerEmail">Email *</label>
+				<div>
+					<input class="form-control" type="email" id="customerEmail" name="customerEmail" placeholder="Email" 
+					ng-model="email" required />
+				</div>
+				<div ng-show="manageCustomerForm.customerEmail.$invalid && !manageCustomerForm.customerEmail.$pristine || isFormSubmitted"
+				 ng-messages="manageCustomerForm.customerEmail.$error">
+					<div ng-message="required" class="help-block">
+                       Email is required
+                    </div>
+                    <div ng-message="email" class="help-block">
+                       Vaild email is required
+                    </div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="customerContact">Phone Number</label>
+				<div>
+					<input class="form-control" type="text" id="customerContact" placeholder="Phone Number" ng-model="contact" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="customerAddress">Address</label>
+				<div>
+					<input class="form-control" type="text" id="customerAddress" placeholder="Address" ng-model="address" />
+				</div>
+			</div>
+		</div>
+		<!-- Modal Content End -->
+		<div class="modal-footer">
+			<button class="btn btn-primary" type="submit" ng-click="saveCustomer(manageCustomerForm.$valid)">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+		</div>
+	</form>
+</div>
